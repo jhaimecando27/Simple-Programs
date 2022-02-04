@@ -2,11 +2,11 @@
 (04/02/22) An enhanced solution disregarding the instruction from CSC 0212's (OOP) Seatwork way back Dec 9 2021.
 
 ## It's Instruction
-Base Class (interface/abstract):
+- Base Class (interface/abstract):
     - Class name: Figure/AbstractFigure
     - Compute perimeter for triangle, rectangle
     - Data Types: `int`, `double`
-Child Class (implements/extends):
+- Child Class (implements/extends):
     - Class name: Triangle & Rectangle
     - Provide at least 3 Overloaded constructors each for Triangle and Rectangle
  
