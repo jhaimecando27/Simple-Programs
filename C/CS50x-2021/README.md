@@ -17,11 +17,4 @@ This repository contains all of my work from CS50x online course through [Harvar
 **Week 9**  - Flask  
 **Week 10** - Ethics  
 
-## Labs  
-Lab **1**  -  Hello & Population | C
-
-## Problem Sets 
-Problem Set **0** - Bonk-all-of-them | Scratch  
-Problem Set **1** - Mario(more) & Credit | C language  
-Problem Set **2** -  
-
+##### NOTE: Uncontinued course
