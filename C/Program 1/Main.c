@@ -93,14 +93,14 @@ add_end (node **head_ref)
 void
 add_after (node **head_ref)
 {
+    /* Check if not empty */
+    if (*head_ref == NULL)
+        return;
+
     /* Get variables needed */
     int key_data;
     node *current_node = (*head_ref),
          *new_node = (node*) malloc(sizeof(node));
-    
-    /* Check if not empty */
-    if (current_node == NULL)
-        return;
 
     /* Put data */
     put_data (&new_node);
@@ -126,15 +126,15 @@ add_after (node **head_ref)
 void
 add_before (node **head_ref)
 {
+    /* Check if not empty */
+    if (*head_ref == NULL)
+        return;
+
     /* Get variables needed */
     int key_data;
     node *prev_node,
          *current_node = (*head_ref),
          *new_node = (node*) malloc(sizeof(node));
-
-    /* Check if not empty */
-    if (current_node == NULL)
-        return;
 
     /* Put data */
     put_data (&new_node);
@@ -170,12 +170,12 @@ add_before (node **head_ref)
 void
 del_start (node **head_ref)
 {
+    /* Check if empty */
+    if (*head_ref == NULL)
+        return;
+    
     /* Get variables needed */
     node *del_node = (*head_ref);
-    
-    /* Check if empty */
-    if (del_node == NULL)
-        return;
     
     /* Change pointer of head */
     (*head_ref) = (*head_ref)->next;
@@ -192,14 +192,14 @@ del_start (node **head_ref)
 void
 del_end (node **head_ref)
 {
+    /* Check if empty */
+    if (*head_ref == NULL)
+        return;
+
     /* Get variables needed */
     node *prev_node,
          *del_node = (*head_ref);
     
-    /* Check if empty */
-    if (del_node == NULL)
-        return;
-
     /* Find the location */
     while (del_node->next != NULL)
     {
@@ -222,14 +222,14 @@ del_end (node **head_ref)
 void
 del_after (node **head_ref)
 {
+    /* Check if empty */
+    if (*head_ref == NULL)
+        return;
+
     /* Get variables needed */
     int key_data;
     node *del_node,
          *prev_node = (*head_ref);
-    
-    /* Check if empty */
-    if (prev_node == NULL)
-        return;
     
     /* Get data after the key */
     printf("Delete after what data?: ");
@@ -258,14 +258,14 @@ del_after (node **head_ref)
 void
 del_before (node **head_ref)
 {
+    /* Check if not empty */
+    if (*head_ref == NULL)
+        return;
+    
     /* Get the variables needed */
     int key_data;
     node *prev_node,
          *del_node = (*head_ref);
-    
-    /* Check if not empty */
-    if (del_node == NULL)
-        return;
     
     /* Get the data before the key */
     printf("Delete before what data?: ");
@@ -293,6 +293,22 @@ del_before (node **head_ref)
     /* Free the node */
     free (del_node);
     return;
+}
+
+/* Clean Memory */
+void free_list(node *head_ref)
+{
+    while (head_ref != NULL)
+    {
+        /* Assign next node to tmp */
+        node *tmp = (head_ref)->next;
+
+        /* Free the node */
+        free(head_ref);
+
+        /* Move to the next node */
+        (head_ref) = tmp;
+    }
 }
 
 
@@ -326,5 +342,7 @@ main (void)
 
 
     /********************************/
+    //free(&head);
+    free_list(head);
     return 0;
 }
