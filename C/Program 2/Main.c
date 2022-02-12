@@ -321,6 +321,23 @@ del_before (node **head_ref, node **tail_ref)
     return;
 }
 
+/* Free all the data */
+void
+free_list(node **head_ref)
+{
+    while (*head_ref != NULL)
+    {
+        /* Assign the next node to tmp */
+        node *tmp = (*head_ref)->next;
+        
+        /* Free the first node */
+        free(*head_ref);
+        
+        /* Assign tmp as the first node */
+        *head_ref = tmp;
+    }
+}
+
 
 int
 main (void)
@@ -354,5 +371,6 @@ main (void)
     printf("\n");
 
     /********************************/
+    free_list(&head);
     return 0;
 }
